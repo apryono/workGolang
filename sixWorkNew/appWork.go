@@ -49,7 +49,7 @@ func menus(input string) int {
 			addMahasiswa()
 			break
 		case 2:
-			fmt.Println("Pilihan Kedua")
+			deleteMahasiswa()
 		case 3:
 			viewMahasiswa()
 		case 4:
@@ -86,6 +86,7 @@ func addMahasiswa() {
 	addName(name)
 	addAge(age)
 	addMajor(major)
+	fmt.Println("Data Ditambahkan")
 
 }
 
@@ -111,7 +112,7 @@ func addAge(age int) int {
 		optNumb := inputNumber(optWord)
 
 		if optNumb >= 17 {
-			arrAges = append(arrAges, age)
+			arrAges = append(arrAges, optNumb)
 			break
 		}
 		fmt.Println("Error : Umur harus lebih dari 17 tahun")
@@ -167,22 +168,53 @@ func viewMahasiswa() {
 }
 
 func viewAllMahasiswa() {
-	for i := 0; i < len(arrNames); i++ {
-		fmt.Println(sym)
-		fmt.Println(i+1, ".")
-		fmt.Println(sym)
-		fmt.Println("Nama : ", arrNames[i])
-		fmt.Println("Umur : ", arrAges[i])
-		fmt.Println("Jurusan : ", arrMajors[i])
+	if len(arrNames) != 0 {
+		for i := 0; i < len(arrNames); i++ {
+			fmt.Println(sym)
+			fmt.Println(i+1, ".")
+			fmt.Println(sym)
+			fmt.Println("Nama : ", arrNames[i])
+			fmt.Println("Umur : ", arrAges[i])
+			fmt.Println("Jurusan : ", arrMajors[i])
+		}
+	} else {
+		fmt.Println("Maaf, Data Tidak Tersedia !")
 	}
 }
 
 func viewMahasiswaByIndex() {
+
 	var inputIndex int
-	fmt.Println("Masukkan Nilai Index : ")
+	fmt.Print("Masukkan Nilai Index : ")
 	fmt.Scanln(&inputIndex)
-	fmt.Println("Hasil Data Sesuai index : ")
-	fmt.Println("Nama : ", arrNames[inputIndex])
-	fmt.Println("Umur : ", arrAges[inputIndex])
-	fmt.Println("Jurusan : ", arrMajors[inputIndex])
+	if inputIndex >= 0 && inputIndex < len(arrNames)-1 {
+		fmt.Println("Hasil Data Sesuai index : ")
+		fmt.Println("Nama : ", arrNames[inputIndex])
+		fmt.Println("Umur : ", arrAges[inputIndex])
+		fmt.Println("Jurusan : ", arrMajors[inputIndex])
+	} else {
+		fmt.Println("Maaf, Data Tidak Tersedia !")
+	}
+}
+
+func deleteMahasiswa() ([]string, []int, []string) {
+	if (len(arrNames) - 1) < 0 {
+		fmt.Println("Maaf, Data tidak ada untuk di delete")
+	} else {
+		fmt.Println(sym)
+		fmt.Println("Delete Mahasiswa")
+		fmt.Println(sym)
+
+		delName := arrNames[:len(arrNames)-1]
+		delAge := arrAges[:len(arrAges)-1]
+		delMajor := arrMajors[:len(arrMajors)-1]
+
+		arrNames = delName
+		arrAges = delAge
+		arrMajors = delMajor
+
+		fmt.Println("Data Telah Di Hapus")
+	}
+
+	return arrNames, arrAges, arrMajors
 }

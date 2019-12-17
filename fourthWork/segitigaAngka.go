@@ -5,7 +5,7 @@ import "fmt"
 func main() {
 
 	var input int
-	fmt.Print("Input Nilai Bintang = ")
+	fmt.Print("Input Nilai = ")
 	fmt.Scan(&input)
 
 	for i := input; i >= 1; i-- {

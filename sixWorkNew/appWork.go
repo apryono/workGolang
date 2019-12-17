@@ -79,15 +79,18 @@ func inputNumber(data string) int {
 }
 
 func addMahasiswa() {
-	fmt.Println(sym)
-	fmt.Println("Add Mahasiswa")
-	fmt.Println(sym)
+	if len(arrNames) > 4 {
+		fmt.Println("Maaf, Batas Input Data Maksimal 5 ")
+	} else {
+		fmt.Println(sym)
+		fmt.Println("Add Mahasiswa")
+		fmt.Println(sym)
 
-	addName(name)
-	addAge(age)
-	addMajor(major)
-	fmt.Println("Data Ditambahkan")
-
+		addName(name)
+		addAge(age)
+		addMajor(major)
+		fmt.Println("Data Ditambahkan")
+	}
 }
 
 func addName(name string) string {
@@ -168,6 +171,9 @@ func viewMahasiswa() {
 }
 
 func viewAllMahasiswa() {
+	fmt.Println(sym)
+	fmt.Println("View All")
+	fmt.Println(sym)
 	if len(arrNames) != 0 {
 		for i := 0; i < len(arrNames); i++ {
 			fmt.Println(sym)
@@ -183,6 +189,9 @@ func viewAllMahasiswa() {
 }
 
 func viewMahasiswaByIndex() {
+	fmt.Println(sym)
+	fmt.Println("View By Index")
+	fmt.Println(sym)
 
 	var inputIndex int
 	fmt.Print("Masukkan Nilai Index : ")
@@ -198,6 +207,7 @@ func viewMahasiswaByIndex() {
 }
 
 func deleteMahasiswa() ([]string, []int, []string) {
+
 	if (len(arrNames) - 1) < 0 {
 		fmt.Println("Maaf, Data tidak ada untuk di delete")
 	} else {

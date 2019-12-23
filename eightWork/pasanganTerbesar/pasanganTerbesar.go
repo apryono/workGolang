@@ -8,27 +8,23 @@ import (
 	"strings"
 )
 
+var arrHasil []int
+var getNumb []string
+
 func main() {
-	var arrHasil []int
 	var maxValue int
 	fmt.Print("Input Number : ")
 	getInput := isInput()
 	_, errs := strconv.Atoi(getInput)
 	if errs == nil {
-		delSpace := strings.Replace(getInput, " ", "", -1)
-		getNumb := strings.Split(delSpace, "")
 
-		for i := 1; i < len(getNumb); i++ {
-			join := getNumb[i-1] + getNumb[i]
-			isNumber, err := strconv.Atoi(join)
-			if err != nil {
-				break
-			} else {
-				arrHasil = append(arrHasil, isNumber)
+		// fungsi delSpace di panggil untuk menghapus spasi
+		delSpace := delSpace(getInput)
+		getNumb = strings.Split(delSpace, "")
 
-			}
+		// fungsi nya untuk mendapat kan array
+		arrHasil = getArray(getNumb)
 
-		}
 		fmt.Println(arrHasil)
 		maxValue = arrHasil[0]
 
@@ -50,4 +46,24 @@ func isInput() string {
 	getData.Scan()
 	data := getData.Text()
 	return data
+}
+
+func delSpace(input string) string {
+	delele := strings.Replace(input, " ", "", -1)
+	return delele
+}
+
+func getArray(input []string) []int {
+	for i := 1; i < len(input); i++ {
+		join := input[i-1] + input[i]
+		isNumber, err := strconv.Atoi(join)
+		if err != nil {
+			break
+		} else {
+			arrHasil = append(arrHasil, isNumber)
+
+		}
+
+	}
+	return arrHasil
 }

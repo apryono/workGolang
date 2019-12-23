@@ -1,0 +1,23 @@
+Buatlah sebuah aplikasi robot menggunakan struct dengan koordinat awal (0,0) dan energi awal 100
+Setiap bergerak energi akan berkurang 5
+Robot bisa diperintahkan untuk bergerak ke arah Utara, Selatan, Timur, dan BaratKetika aplikasi dimulai dan setelah robot bergerak akan ditampilkan informasi mengenai koordinat dan sisa energi
+Koordinat X dan Y tidak bisa kurang dari 0 atau lebih dari 10
+Jika energi habis, tampilkan koordinat terakhir dari robot kemudian keluar dari aplikasicontoh aplikasi :
+Robot Koordinat (0,0), Energi 100
+Masukan perintah : U
+Robot Koordinat (0,1), Energi 95
+Masukan perintah : B
+Robot tidak boleh keluar dari arena
+Masukan perintah : T
+Robot Koordinat (1,1), Energi 90
+Masukan perintah : TTSB
+Robot Koordinat (2,0), Energi 70
+Masukan perintah : USTBUSTBUSTBUSTBUSTBUSTBUSTBUSTBUSTB
+Energi tidak cukup
+.
+.
+.
+Robot Koordinat (3,2), Energi 5
+Masukan perintah : U
+Robot Koordinat(3,3), Energi 0
+System Exit

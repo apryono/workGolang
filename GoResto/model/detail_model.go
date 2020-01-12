@@ -13,6 +13,6 @@ type Transaction struct {
 	TransID  int      `json:"TransactionID"`
 	MejaID   int      `json:"Nomor_meja"`
 	StatusTR string   `json:"Status Transaksi"`
-	GranTot  int      `json:"Grand_total,omitempty"`
 	Detail   []Detail `json:"detail,omitempty"`
+	GranTot  int      `json:"Grand_total,omitempty"`
 }
